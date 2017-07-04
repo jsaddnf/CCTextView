@@ -1,6 +1,8 @@
 # CCTextView
 
-![image](https://github.com/jsaddnf/CCTextView/blob/master/CCTextViewDemo.gif)
+## Screenshot
+
+<img src="CCTextViewDemo.gif" alt="img" width="240px">
 
 
 A UITextView which support placehould and dynamic height
