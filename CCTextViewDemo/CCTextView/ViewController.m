@@ -24,6 +24,7 @@
     self.ccTextView.layer.borderColor = [UIColor blackColor].CGColor;
     self.ccTextView.layer.cornerRadius = 2;
     self.ccTextView.placeholder = @"我是placeholder";
+    [self.ccTextView setPlaceholderOpacity:.5];
     [self.ccTextView setPlaceholderColor:[UIColor orangeColor]];
     [self.ccTextView setPlaceholderFont:[UIFont boldSystemFontOfSize:15]];
     [self.ccTextView setFont:[UIFont systemFontOfSize:15]];
