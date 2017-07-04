@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-<img src="CCTextViewDemo.gif" alt="img" width="240px">
+<img src="demo.gif" alt="img" width="240px">
 
 
 A UITextView which support placehould and dynamic height
