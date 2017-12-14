@@ -221,7 +221,9 @@
         self.scrollEnabled = NO;
         float textViewHeight =  [self sizeThatFits:CGSizeMake(self.frame.size.width, CGFLOAT_MAX)].height;
         CGRect frame = self.frame;
-        frame.size.height = textViewHeight;
+        if (frame.size.height < textViewHeight) {
+            frame.size.height = textViewHeight;
+        }
         self.frame = frame;
         if (_updateBlock) {
             void (^updateHeight)(CCTextView *textView) = _updateBlock;
