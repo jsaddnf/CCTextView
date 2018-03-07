@@ -35,7 +35,6 @@
         NSLog(@"CCTextView开始编辑");
     }];
     
-    
     [self.ccTextView addTextViewEndEvent:^(CCTextView *textView) {
         NSLog(@"CCTextView结束编辑");
     }];

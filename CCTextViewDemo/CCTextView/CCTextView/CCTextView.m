@@ -14,13 +14,8 @@
 <UITextViewDelegate>
 @property (strong,nonatomic) UIColor *placeholder_color;
 @property (strong,nonatomic) UIFont * placeholder_font;
-/**
- *   显示 Placeholder
- */
 @property (strong,nonatomic,readonly)  UILabel *PlaceholderLabel;
-
 @property (assign,nonatomic) float placeholdeWidth;
-
 @property (copy,nonatomic) id eventBlock;
 @property (copy,nonatomic) id BeginBlock;
 @property (copy,nonatomic) id EndBlock;
@@ -28,10 +23,6 @@
 @end
 
 @implementation CCTextView
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-
 
 #pragma mark - life cycle
 
@@ -44,28 +35,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DidChange:) name:UITextViewTextDidChangeNotification object:self];
-    
     //UITextViewTextDidBeginEditingNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewBeginNoti:) name:UITextViewTextDidBeginEditingNotification object:self];
-    
     //UITextViewTextDidEndEditingNotification
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewEndNoti:) name:UITextViewTextDidEndEditingNotification object:self];
     
     float left=kLeftX,top=kTopY,hegiht=30;
-    
     self.placeholdeWidth=CGRectGetWidth(self.frame)-2*left;
-    
-    _PlaceholderLabel=[[UILabel alloc] initWithFrame:CGRectMake(left, top
-                                                                , _placeholdeWidth, hegiht)];
-    
+    _PlaceholderLabel=[[UILabel alloc] initWithFrame:CGRectMake(left, top, _placeholdeWidth, hegiht)];
     _PlaceholderLabel.numberOfLines=0;
     _PlaceholderLabel.lineBreakMode=NSLineBreakByCharWrapping|NSLineBreakByWordWrapping;
     [self addSubview:_PlaceholderLabel];
-    
-    
     [self defaultConfig];
-    
 }
 -(void)layoutSubviews
 {
@@ -77,15 +58,12 @@
     frame.size.height=hegiht;
     frame.size.width=self.placeholdeWidth;
     _PlaceholderLabel.frame=frame;
-    
     [_PlaceholderLabel sizeToFit];
-    
 }
 
 -(void)dealloc{
     
     [_PlaceholderLabel removeFromSuperview];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -108,6 +86,7 @@
     }
     
     if (limit) {
+        
         _eventBlock = limit;
         
     }
@@ -208,7 +187,6 @@
             self.text = [ self.text substringToIndex:self.maxTextLength];
         }
     }
-    
     
     if (_eventBlock && self.text.length > self.maxTextLength) {
         

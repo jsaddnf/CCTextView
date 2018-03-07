@@ -10,58 +10,54 @@
 
 @interface CCTextView : UITextView
 @property(copy,nonatomic)   NSString *placeholder;
-//最大长度设置
+
+/**
+ 最大长度限制
+ */
 @property(assign,nonatomic) NSInteger maxTextLength;
-//更新高度的时候
+
+/**
+ 更新高度
+ */
 @property(assign,nonatomic) float updateHeight;
-//是否需要自动更新高度
+
+/**
+ 是否需要自动更新高度
+ */
 @property (assign,nonatomic) BOOL shouldAutoUpdateHeight;
 
 /**
- *  增加text 长度限制
- *
- *  @param maxLength <#maxLength description#>
- *  @param limit     <#limit description#>
+ 增加text 长度限制
  */
 -(void)addMaxTextLengthWithMaxLength:(NSInteger)maxLength andEvent:(void(^)(CCTextView *textView))limit;
+
 /**
   开始编辑的回调
-
 */
 -(void)addTextViewBeginEvent:(void(^)(CCTextView *textView))begin;
 
 /**
- *  结束编辑 的 回调
- *
- *
+  结束编辑 的 回调
  */
 -(void)addTextViewEndEvent:(void(^)(CCTextView *textView))End;
 
 /**
  更新高度时候的回调，在此方法中可以更新其他控件高度
-
- @param event <#event description#>
  */
 -(void)TextViewDidUpdateHeightEvent:(void(^)(CCTextView *textView))event;
 
 /**
- *  设置Placeholder 颜色
- *
- *  @param color <#color description#>
+ 设置Placeholder 颜色
  */
 -(void)setPlaceholderColor:(UIColor*)color;
 
 /**
- *  设置Placeholder 字体
- *
- *  @param font <#font description#>
+ 设置Placeholder 字体
  */
 -(void)setPlaceholderFont:(UIFont*)font;
 
 /**
- *  设置透明度
- *
- *  @param opacity <#opacity description#>
+ 设置透明度
  */
 -(void)setPlaceholderOpacity:(float)opacity;
 
